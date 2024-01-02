@@ -21,35 +21,29 @@ DEFAULT_OPTS_VARNET = dict(features_out=48, num_act_weights=31, num_stages=10, a
 						   loss_type='complex', init_scale=0.04, sampling_pattern='cartesian',
 						   seed=1, lr=1e-4, momentum=0., error_scale=10, loss_weight=1)
 
-
-
 parser = argparse.ArgumentParser(description='Variational network arguments')
-
 # Data IO
-parser.add_argument('--name',           type=str, default='simulated_mri', help='name of the dataset to use')
-parser.add_argument('--root_dir',       type=str, default='../dataset/',         help='directory of the data')
+parser.add_argument('--name',           				type=str, default='simulated_mri', help='name of the dataset to use')
+parser.add_argument('--root_dir',       				type=str, default='../dataset/',         help='directory of the data')
 # Training and Testing Configuration
-parser.add_argument('--mode', type=str, default='train', help='train, eval_varnet, eval_seg')
-parser.add_argument('--net_type', type=str, default='1_kernel', help='1_kernel, learned_kernels')
-parser.add_argument('--epoch', type=int, default=250, help='number of training epoch')
-parser.add_argument('--batch_size', type=int, default=16, help='batch size')
-parser.add_argument('--gpus', type=str, default='0', help='gpu id to use')
-parser.add_argument('--save_dir', type=str, default='../results/concat_networks/_alternate_1kernel_alpha0.1_pretrainedVarnet_MSEtoOrig',
-					help='directory of the experiment')
-parser.add_argument('--pretrained_varnet', type=str, default=None, help='path to pretrained VarNet')
-parser.add_argument('--pretrained_nnunet', type=str, default=None, help='path to pretrained UNet')
-parser.add_argument('--input', type=str, default='cg',
-					help='input for VarNet: ifft, cg(10 iterations)')
-parser.add_argument('--lr', type=float, default=1e-4, help='learning rate')
-parser.add_argument('--loss_weight_varnet_unet', type=float, default=0.1, help='weight for the loss_ (1-w)*loss_unet + w*loss_varnet')
-parser.add_argument('--decreasing_loss_weight', type=bool, default=False, help='decreasing weight for the loss_ (1-w)*loss_unet + w*loss_varnet')
-parser.add_argument('--weight_varnet', type=float, default=100, help='weight alpha (1-w)*loss_unet + w*alpha * loss_varnet')
-parser.add_argument('--error_scale', type=float, default=1.,
-					help='how much to magnify the error map for display purpose')
-parser.add_argument('--save_loss_plot', type=bool, default=True, help='save plot of mean loss per epoch')
-parser.add_argument('--save_mean_loss', type=bool, default=True, help='save mean loss per epoch as numpy array')
-parser.add_argument('--check_validation_per_epoch', type=bool, default=True, help='Evaluate validation set per epoch')
-#parser.add_argument('--varnet_update', type=int, default=5, help='number of mini batches of unet before one epoch of varnet is updatet')
+parser.add_argument('--mode', 						type=str, default='train', help='train, eval_varnet, eval_seg')
+parser.add_argument('--net_type',						type=str, default='1_kernel', help='1_kernel, learned_kernels')
+parser.add_argument('--epoch', 						type=int, default=250, help='number of training epoch')
+parser.add_argument('--batch_size', 					type=int, default=1, help='batch size')
+parser.add_argument('--gpus', 						type=str, default='0', help='gpu id to use')
+parser.add_argument('--save_dir', 					type=str, default='../results/concat_networks/_alternate_1kernel_alpha0.1_pretrainedVarnet_MSEtoOrig', help='directory of the experiment')
+parser.add_argument('--pretrained_varnet', 			type=str, default=None, help='path to pretrained VarNet')
+parser.add_argument('--pretrained_nnunet', 			type=str, default=None, help='path to pretrained UNet')
+parser.add_argument('--input', 						type=str, default='cg', help='input for VarNet: ifft, cg(10 iterations)')
+parser.add_argument('--lr', 							type=float, default=1e-4, help='learning rate')
+parser.add_argument('--loss_weight_varnet_unet', 		type=float, default=0.1, help='weight for the loss_ (1-w)*loss_unet + w*loss_varnet')
+parser.add_argument('--decreasing_loss_weight', 		type=bool, default=False, help='decreasing weight for the loss_ (1-w)*loss_unet + w*loss_varnet')
+parser.add_argument('--weight_varnet', 				type=float, default=100, help='weight alpha (1-w)*loss_unet + w*alpha * loss_varnet')
+parser.add_argument('--error_scale', 					type=float, default=1., help='how much to magnify the error map for display purpose')
+parser.add_argument('--save_loss_plot', 				type=bool, default=True, help='save plot of mean loss per epoch')
+parser.add_argument('--save_mean_loss', 				type=bool, default=True, help='save mean loss per epoch as numpy array')
+parser.add_argument('--check_validation_per_epoch', 	type=bool, default=True, help='Evaluate validation set per epoch')
+
 def main():
 	parse_args = parser.parse_args()
 	print_options(parser, parse_args)

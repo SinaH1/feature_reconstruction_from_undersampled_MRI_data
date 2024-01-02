@@ -96,7 +96,7 @@ class Torso_Dataset(Dataset):
         torso_data /= norm
         segs[segs > 0] = 1
         
-        data = {'img': torso_data, 'segs': segs.reshape((1,192,192)).astype(float)}
+        data = {'img': torso_data.reshape((1,192,192)).astype(float), 'segs': segs.reshape((1,192,192)).astype(float)}
         return data
 
 

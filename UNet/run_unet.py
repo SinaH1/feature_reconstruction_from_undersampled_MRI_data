@@ -13,22 +13,20 @@ from UNet.unet_model import UNet
 parser = argparse.ArgumentParser(description='UNet arguments')
 
 # Data IO
-parser.add_argument('--name', type=str, default='images', help='name of the dataset to use')
-parser.add_argument('--root_dir',         type=str, default='../dataset/',         help='directory of the data')
+parser.add_argument('--name', 		type=str, default='images', help='name of the dataset to use')
+parser.add_argument('--root_dir',     type=str, default='../dataset/',         help='directory of the data')
 
 # Training and Testing Configuration
-parser.add_argument('--mode', type=str, default='train', help='')
-parser.add_argument('--net_type', type=str, default='original', help='original, orig+dx, learned_kernels, orig+kernel')
-
-parser.add_argument('--lr', type=float, default=1e-4, help='learning rate')
-parser.add_argument('--epoch', type=int, default=100, help='number of training epoch')
-parser.add_argument('--batch_size', type=int, default=16, help='batch size')
-parser.add_argument('--gpus', type=str, default='0', help='gpu id to use')
-parser.add_argument('--save_dir', type=str, default='../results/UNet/test',
-					help='directory of the experiment')
-parser.add_argument('--save_loss_plot', type=bool, default=True, help='save plot of mean loss per epoch')
-parser.add_argument('--save_loss', type=bool, default=False, help='save loss as numpy array')
-parser.add_argument('--save_mean_loss', type=bool, default=True, help='save mean loss per epoch as numpy array')
+parser.add_argument('--mode', 			type=str, default='train', help='')
+parser.add_argument('--net_type', 		type=str, default='original', help='original, orig+dx, learned_kernels, orig+kernel')
+parser.add_argument('--lr', 				type=float, default=1e-4, help='learning rate')
+parser.add_argument('--epoch', 			type=int, default=100, help='number of training epoch')
+parser.add_argument('--batch_size', 		type=int, default=16, help='batch size')
+parser.add_argument('--gpus', 			type=str, default='0', help='gpu id to use')
+parser.add_argument('--save_dir', 		type=str, default='../results/UNet/test', help='directory of the experiment')
+parser.add_argument('--save_loss_plot', 	type=bool, default=True, help='save plot of mean loss per epoch')
+parser.add_argument('--save_loss', 		type=bool, default=False, help='save loss as numpy array')
+parser.add_argument('--save_mean_loss', 	type=bool, default=True, help='save mean loss per epoch as numpy array')
 parser.add_argument('--pretrained_model', type=str,   default=None)
 parser.add_argument('--check_validation_per_epoch', type=bool, default=True, help='Evaluate validation set per epoch')
 

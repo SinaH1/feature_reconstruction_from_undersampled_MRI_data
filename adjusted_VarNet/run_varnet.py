@@ -17,8 +17,8 @@ parser.add_argument('--name',             type=str, default='simulated_mri',    
 parser.add_argument('--root_dir',         type=str, default='../dataset/',         help='directory of the data')
 
 # Network configuration
-parser.add_argument ('--net_type',    type=str, default='original', help='original, only_dx, only_dy, random_kernels, fixed_kernels')
-parser.add_argument ('--operator',    type=str, default='TF', help='FD,TF')
+parser.add_argument ('--net_type',    	type=str, default='original', help='original, only_dx, only_dy, random_kernels, fixed_kernels')
+parser.add_argument ('--operator',    	type=str, default='TF', help='FD,TF')
 parser.add_argument('--features_out',     type=int, default=48,    help='number of filter for convolutional kernel')
 parser.add_argument('--num_act_weights',  type=int, default=31,    help='number of RBF kernel for activation function')
 parser.add_argument('--num_stages',       type=int, default=10,    help='number of stages in the network')
@@ -29,7 +29,7 @@ parser.add_argument('--mode',             type=str,   default='train',          
 parser.add_argument('--optimizer',        type=str,   default='adam',                help='type of optimizer to use for training')
 parser.add_argument('--loss_type',        type=str,   default='complex',             help='compute loss on complex or magnitude image or absolute or edges')
 parser.add_argument('--lr',               type=float, default=1e-4,                  help='learning rate')
-parser.add_argument('--epoch',            type=int,   default=1,                   help='number of training epoch')
+parser.add_argument('--epoch',            type=int,   default=100,                   help='number of training epoch')
 parser.add_argument('--batch_size',       type=int,   default=16,                     help='batch size')
 parser.add_argument('--gpus',             type=str,   default='0',        	         help='gpu id to use')
 parser.add_argument('--save_dir',         type=str,   default='../results/adjusted_VarNet/test',    help='directory of the experiment')
@@ -37,8 +37,8 @@ parser.add_argument('--pretrained_model', type=str,   default=None) #'/usr/local
 parser.add_argument('--momentum',         type=float, default=0.,                    help='momentum for the optimizer')
 parser.add_argument('--loss_weight',      type=float, default=1.,                    help='weight for the loss function')
 parser.add_argument('--error_scale',      type=float, default=1.,                    help='how much to magnify the error map for display purpose')
-parser.add_argument('--save_loss_plot',      type=bool, default=True,                    help='save plot of mean loss per epoch')
-parser.add_argument('--save_mean_loss',      type=bool, default=True,                    help='save mean loss per epoch as numpy array')
+parser.add_argument('--save_loss_plot',   type=bool, default=True,                    help='save plot of mean loss per epoch')
+parser.add_argument('--save_mean_loss',   type=bool, default=True,                    help='save mean loss per epoch as numpy array')
 parser.add_argument('--input',            type=str, default='cg', help='input for VarNet: ifft, cg(10 iterations), landweber(50 iterations)')
 parser.add_argument('--check_validation_per_epoch', type=bool, default=True, help='Evaluate validation set per epoch')
 
