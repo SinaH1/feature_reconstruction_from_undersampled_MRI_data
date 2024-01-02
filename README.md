@@ -66,7 +66,7 @@ python adjusted_VarNet/run_varnet.py -h
 
 ## 6.4. Concatenation of image reconstruction and segmentation
 ### Separate Training
-VarNet:
+#### VarNet
 ```
 python adjusted_VarNet/run_varnet.py --net_type {net_type} --operator {operator} --mode {mode} --epoch {number of epochs}
 
@@ -80,7 +80,7 @@ Other choices are possible for a different network architecture or training sett
 python adjusted_VarNet/run_varnet.py -h
 ```
 
-UNet:
+#### UNet
 ```
 python UNet/run_unet.py --net_type {net_type} --mode {mode} --epoch {number of epochs}
 
@@ -95,7 +95,7 @@ python UNet/run_unet.py -h
 
 
 
-###Concatenation image reconstruction and segmentation
+### Concatenation image reconstruction and segmentation
 ```
 python concatenated_networks/run_networks.py --net_type {net_type} --mode {mode} --epoch {number of epochs}
 
@@ -109,7 +109,7 @@ python concatenated_networks/run_networks.py -h
 ```
 
 
-###Concatenation feature reconstruction and segmentation
+### Concatenation feature reconstruction and segmentation
 With the network type “1_kernel”, the convolutional feature reconstruction with one kernel is executed.
 With the network type “learned_kernels”, the reconstruction of the original image and three learned features is executed.
 ```
